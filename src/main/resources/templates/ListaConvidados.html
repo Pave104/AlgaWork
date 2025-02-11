@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <link href="../static/estilo.css" th:href="@{estilo.css}" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Lista de Convidados</title>
+</head>
+<body>
+<div class="for">
+    <table border="2" class="tabelaf">
+        <tr ><td colspan="3">
+            <h1 th:text="${titulo}">pagina do Thymeleaf</h1></td></tr>
+     <tr><td>ID</td><td>NOME</td><td>QUANTIDADE</td></tr>
+        <tr th:each="convite: ${convidados}">
+    <td th:text="${convite.Id}">  Id   </td>
+           <td th:text="${convite.nome}">nome</td>
+        <td th:text="${convite.quantidade}">quantidade</td>
+    </tr>
+    </table>
+</div>
+  <div class="inputs">
+      <form class="inline" method="POST" th:object="${Convidado}" th:action="@{/convidados">
+
+          <label>
+              <input type="text" placeholder="Nome" th:field="*{nome}">
+          </label>
+          <label>
+              <input type="text" placeholder="ID" th:field="*{Id}">
+          </label>
+          <label>
+              <input type="text" placeholder="Nome" th:field="*{quantidade}">
+          </label>
+         <input type="submit" value ="Salvar" >
+
+      </form>
+
+
+
+
+  </div>
+
+</body>
+</html>
